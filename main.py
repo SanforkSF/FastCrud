@@ -6,7 +6,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi_crudrouter import SQLAlchemyCRUDRouter, MemoryCRUDRouter as CRUDRouter
-from models import Code, CodeCreate, CodeModel, Base, AdModel, Ad, AdCreate, AdProdModel, AdProd, AdProdCreate
+from models import Code, CodeModel, Base, AdModel, Ad, AdProdModel, AdProd
+from schemas import *
 
 
 app = FastAPI()
@@ -69,7 +70,7 @@ router3= SQLAlchemyCRUDRouter(
     db=get_db_mssql
 )
 
-from models import AuthorCreate, Author, AuthorModel, BookCreate, Book, BookModel, AuthorBook, AuthorBookCreate, AuthorBookModel
+from models import Author, AuthorModel,  Book, BookModel, AuthorBook, AuthorBookModel
 session_booker = sqlalchemy.orm.sessionmaker(
     autocommit=False,
     autoflush=False,
@@ -108,9 +109,9 @@ router6= SQLAlchemyCRUDRouter(
     db=get_db_booker
 )
 
-app.include_router(router4)
-app.include_router(router5)
-app.include_router(router6)
+# app.include_router(router4)
+# app.include_router(router5)
+# app.include_router(router6)
 
 app.include_router(router1)
 # app.include_router(router2)
