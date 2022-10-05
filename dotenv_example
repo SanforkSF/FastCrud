@@ -1,0 +1,4 @@
+MSSQL_USER = 'user'
+MSSQL_PASSWORD = 'password'
+MSSQL_HOST = 'hostname'
+MSSQL_DATABASE = 'AdventureWorksLT2019'
