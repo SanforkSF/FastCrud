@@ -3,6 +3,7 @@ import datetime
 from sqlalchemy import Column, String, Float, Integer, DateTime, Date, ForeignKey
 from sqlalchemy import create_engine, MetaData, Table, and_, select
 import sqlalchemy.orm
+from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -52,7 +53,6 @@ class AdProdModel(Base):
                             primaryjoin="AdModel.ProductModelID==AdProdModel.ProductModelID")
 
 
-
 class Ad(AdCreate):
     ProductID: int
 
@@ -67,8 +67,9 @@ class AdModel(Base):
     Name = Column(String)
     ProductNumber = Column(String, nullable=True)
     StandardCost = Column(Float, nullable=True)
+    ListPrice = Column(Float, nullable=True)
     SellStartDate = Column(DateTime)
-    rowguid = Column(String, nullable=True)
+    rowguid = Column(UNIQUEIDENTIFIER, nullable=True)
     ModifiedDate = Column(DateTime)
     ProductModelID = Column(Integer, ForeignKey('SalesLT.ProductModel.ProductModelID'))
 

@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from uuid import UUID
 from typing import Optional
 import datetime
 
@@ -32,7 +33,7 @@ class CodeCreate(BaseModel):
 
 class AdProdCreate(BaseModel):
     Name: Optional[str]
-    rowguid: Optional[str]
+    rowguid: Optional[UUID]
     ModifiedDate: Optional[datetime.datetime]
 
 
@@ -40,9 +41,10 @@ class AdCreate(BaseModel):
     Name: Optional[str]
     ProductNumber: Optional[str]
     StandardCost: Optional[float]
+    ListPrice: Optional[float]
     SellStartDate: Optional[datetime.datetime]
     ProductModelID: Optional[int]
-    rowguid: Optional[str]
+    rowguid: Optional[UUID]
     ModifiedDate: Optional[datetime.datetime]
-    ProductModelID: Optional[str]
+    ProductModelID: Optional[int]
 
