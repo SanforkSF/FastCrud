@@ -6,7 +6,7 @@ load_dotenv()
 
 from fastapi import FastAPI
 from fastapi_crudrouter import SQLAlchemyCRUDRouter, MemoryCRUDRouter as CRUDRouter
-from models import ProductSQLModel, Product, ProductModelSQLModel, ProductModel
+from models import *
 from schemas import *
 
 # CREATING FastAPI application and connection to database
@@ -57,5 +57,21 @@ router_productmodel= SQLAlchemyCRUDRouter(
     db=get_db_mssql
 )
 
+router_productcategory= SQLAlchemyCRUDRouter(
+    schema=ProductCategory,
+    create_schema=ProductCategoryCreate,
+    db_model=ProductCategorySQLModel,
+    db=get_db_mssql
+)
+
+router_customer= SQLAlchemyCRUDRouter(
+    schema=Customer,
+    create_schema=CustomerCreate,
+    db_model=CustomerSQLModel,
+    db=get_db_mssql
+)
+
 app.include_router(router_product)
 app.include_router(router_productmodel)
+app.include_router(router_productcategory)
+app.include_router(router_customer)
