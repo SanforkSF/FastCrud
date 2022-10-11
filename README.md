@@ -1,6 +1,6 @@
 # FAST CRUD for AdventureWorksLT2019 on FastAPI
 
-This repository can create fast CRUD for AdventureWorksLT2019 tables (Product and ProductModel with relations).
+This repository can create fast CRUD for AdventureWorksLT2019 tables.
 
 You can donwload AdventureWorksLT2019 database here:
 
